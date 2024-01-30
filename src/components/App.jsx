@@ -65,12 +65,10 @@ function App() {
         <div className="cell"></div>
         <div className="cell"></div>
       </section>
-
       <section>
-        <button className="dice" onClick={handleClick}>Lanzar Dado</button>
+        <button className="dice" onClick={handleClick}>Lanzar Dado 🎲</button>
         <div className="game-status">En curso</div>
       </section>
-
       <section className="goods-container">
         <div className="goods-item">🍪</div>
         <div className="goods-item">🍪</div>

@@ -20,11 +20,11 @@ function App() {
     if (number === 4) {
       setGrogu(+1);
     } else if (number === 1) {
-      setCookiesContainer (cookiesContainer.pop());
+      setCookiesContainer (cookiesContainer.slice(0, -1));
     } else if (number === 2) {
-      setEggsContainer (eggsContainer.pop());
+      setEggsContainer (eggsContainer.slice(0, -1));
     } else {
-      setFrogsContainer (frogsContainer.pop());
+      setFrogsContainer (frogsContainer.slice(0, -1));
     }
     
   }

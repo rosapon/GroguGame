@@ -6,50 +6,36 @@ function App() {
   const [grogu, setGrogu] = useState(0)
   const [dice, setDice] = useState(null)
   const [gameStatus, setGameStatus] = useState("en curso");
-  const [cookiesContainer, setCookiesContainer] = useState(["🍪", "🍪", "🍪"])
-  const [eggsContainer, setEggsContainer] = useState(["🥚", "🥚", "🥚"])
-  const [frogsContainer, setFrogsContainer] = useState(["🐸", "🐸", "🐸"])
-
-
-  
-
+  const [cookiesContainer, setCookiesContainer] = useState(["  🍪 ", "  🍪 ", "  🍪 "])
+  const [eggsContainer, setEggsContainer] = useState(["  🥚 ", "  🥚 ", "  🥚 "])
+  const [frogsContainer, setFrogsContainer] = useState(["  🐸 ", "  🐸 ", "  🐸 "])
 
   const rollDice = () => {
     const number = Math.floor(Math.random() * 4 + 1)
     console.log(number);
     if (number === 4) {
-      setGrogu(+1);
+      setGrogu(grogu+1);
+      setGameStatus(' Grogu ha avanzado una casilla');
+     /*  for(let i = 0; i< grogu.length; i++){
+        setGrogu(i)
+      } */
     } else if (number === 1) {
       setCookiesContainer (cookiesContainer.slice(0, -1));
+      setGameStatus('Se ha descargado una coockie');
     } else if (number === 2) {
       setEggsContainer (eggsContainer.slice(0, -1));
+      setGameStatus('Se ha descargado un huevo');
     } else {
       setFrogsContainer (frogsContainer.slice(0, -1));
+      setGameStatus('Se ha descargado una rana');
     }
     
   }
-
-
-
   const handleClick = (event) => {
     event.preventDefault();
     rollDice()
    
   }
-
-
-
-  
-  
-
-
- 
-
-
-
-
-
-
   return <>
    <div className="page">
     <header>
@@ -67,22 +53,16 @@ function App() {
       </section>
       <section>
         <button className="dice" onClick={handleClick}>Lanzar Dado 🎲</button>
-        <div className="game-status">En curso</div>
+        <div className="game-status">{gameStatus}</div>
       </section>
       <section className="goods-container">
-        <div className="goods-item">🍪</div>
-        <div className="goods-item">🍪</div>
-        <div className="goods-item">🍪</div>
+        <div className="goods-item">{cookiesContainer}</div>
       </section>
       <section className="goods-container">
-        <div className="goods-item">🥚</div>
-        <div className="goods-item">🥚</div>
-        <div className="goods-item">🥚</div>
+        <div className="goods-item">{eggsContainer}</div>
       </section>
       <section className="goods-container">
-        <div className="goods-item">🐸</div>
-        <div className="goods-item">🐸</div>
-        <div className="goods-item">🐸</div>
+        <div className="goods-item">{frogsContainer}</div>
       </section>
       <section>
         <button className="restart-button">Reiniciar Juego</button>

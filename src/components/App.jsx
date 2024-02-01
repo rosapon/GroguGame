@@ -7,10 +7,14 @@ import GameStatus from "./GameStatus";
 
 
 
+
 function App() {
   const [grogu, setGrogu] = useState(0);
   const [dice, setDice] = useState(null);
   const [gameStatus, setGameStatus] = useState("en curso");
+
+
+
   const [cookiesContainer, setCookiesContainer] = useState([
     "  🍪 ",
     "  🍪 ",
@@ -52,7 +56,7 @@ function App() {
     return (
       <>
         <div className="cell">
-          {index === grogu && <div className="grogu"> 👣</div>}
+          {index === grogu && <div key={index} className="grogu"> 👣</div>}
         </div>
       </>
     );
@@ -85,7 +89,7 @@ function App() {
       <div className="page">
         <Header />
         <main className="page">
-          <Board groguPosition = {groguCells}/>
+          <Board groguPosition = {groguCells} />
           <section>
             <Dice funtionClick= {handleClick}/>
             <GameStatus gameStatus={gameStatus}/>

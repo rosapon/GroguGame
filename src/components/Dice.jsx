@@ -10,7 +10,7 @@ function Dice({funtionClick}) {
 }
 
 Dice.propTypes = {
-    funtionClick: PropTypes.object
+    funtionClick: PropTypes.func
 }
 
 export default Dice;

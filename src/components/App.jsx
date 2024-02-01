@@ -1,5 +1,11 @@
 import "../styles/_App.scss";
 import { useState } from "react";
+import Header from "./Header";
+import Board from "./Board";
+import Dice from "./Dice";
+import GameStatus from "./GameStatus";
+
+
 
 function App() {
   const [grogu, setGrogu] = useState(0);
@@ -52,19 +58,37 @@ function App() {
     );
   });
 
+  const handleReset = () => {
+    setGrogu(0)
+    setDice(null);
+    setGameStatus("en curso")
+    setCookiesContainer([
+      "  🍪 ",
+      "  🍪 ",
+      "  🍪 ",
+    ]);
+    setEggsContainer([
+      "  🥚 ",
+      "  🥚 ",
+      "  🥚 ",
+    ]);
+    setFrogsContainer([
+      "  🐸 ",
+      "  🐸 ",
+      "  🐸 ",
+    ]);
+
+  }
+
   return (
     <>
       <div className="page">
-        <header>
-          <h1>¡Cuidado con Grogu!</h1>
-        </header>
+        <Header />
         <main className="page">
-          <section className="board">{groguCells}</section>
+          <Board groguPosition = {groguCells}/>
           <section>
-            <button className="dice" onClick={handleClick}>
-              Lanzar Dado 🎲
-            </button>
-            <div className="game-status">{gameStatus}</div>
+            <Dice funtionClick= {handleClick}/>
+            <GameStatus gameStatus={gameStatus}/>
           </section>
           <section className="goods-container">
             <div className="goods-item">{cookiesContainer}</div>
@@ -76,7 +100,7 @@ function App() {
             <div className="goods-item">{frogsContainer}</div>
           </section>
           <section>
-            <button className="restart-button">Reiniciar Juego</button>
+            <button className="restart-button" onClick={handleReset}>Reiniciar Juego</button>
           </section>
         </main>
       </div>

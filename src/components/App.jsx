@@ -46,7 +46,7 @@ function App() {
     return (
       <>
         <div className="cell">
-          {index === grogu && <div className="grogu">👣</div>}
+          {index === grogu && <div className="grogu"> 👣</div>}
         </div>
       </>
     );

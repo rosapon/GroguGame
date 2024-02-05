@@ -4,6 +4,7 @@ import Header from "./Header";
 import Board from "./Board";
 import Dice from "./Dice";
 import GameStatus from "./GameStatus";
+import Form from "./Form";
 
 
 
@@ -12,6 +13,8 @@ function App() {
   const [grogu, setGrogu] = useState(0);
   const [dice, setDice] = useState(null);
   const [gameStatus, setGameStatus] = useState("en curso");
+
+  const [name, setName] = useState("");
 
 
 
@@ -82,6 +85,13 @@ function App() {
       "  🐸 ",
     ]);
 
+    setName("");
+
+  }
+
+  const handleName = (value) => {
+    setName(value)
+
   }
 
   return (
@@ -91,8 +101,9 @@ function App() {
         <main className="page">
           <Board groguPosition = {groguCells} />
           <section>
+            <Form handleName={handleName} name={name}/>
             <Dice funtionClick= {handleClick}/>
-            <GameStatus gameStatus={gameStatus}/>
+            <GameStatus gameStatus={gameStatus} name={name}/>
           </section>
           <section className="goods-container">
             <div className="goods-item">{cookiesContainer}</div>

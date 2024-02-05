@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 
-function GameStatus({gameStatus}) {
+function GameStatus({gameStatus, name}) {
   return (
-    <div className="game-status">{gameStatus}</div>
+    <div className="game-status">{name ? }</div>
   )
 }
 

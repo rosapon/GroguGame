@@ -1,5 +1,5 @@
 import "../styles/_App.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "./Header";
 import Board from "./Board";
 import Dice from "./Dice";
@@ -17,7 +17,6 @@ function App() {
   const [name, setName] = useState("");
 
 
-
   const [cookiesContainer, setCookiesContainer] = useState([
     "  🍪 ",
     "  🍪 ",
@@ -33,6 +32,26 @@ function App() {
     "  🐸 ",
     "  🐸 ",
   ]);
+  
+  useEffect(()=>{
+    if(grogu === 7){
+      setGameStatus('Perdiste!!')
+    } 
+     if(cookiesContainer.length === 0 && eggsContainer.length === 0 && frogsContainer.length === 0 ){
+      setGameStatus(`Ganaste, ${name} completa la misión`);
+     }
+     if(cookiesContainer.length === 0 ){
+      setGameStatus('No te quedan más coockies tira otra vez')
+     }
+     if(eggsContainer.length === 0 ){
+      setGameStatus('No te quedan más huevos tira otra vez')
+     }
+     if(frogsContainer.length === 0 ){
+      setGameStatus('No te quedan más ranas tira otra vez')
+     }
+  },
+  [grogu, cookiesContainer, eggsContainer, frogsContainer, name ])
+
 
   const rollDice = () => {
     const number = Math.floor(Math.random() * 4 + 1);
@@ -41,14 +60,18 @@ function App() {
       setGrogu(grogu + 1);
       setGameStatus(" Grogu ha avanzado una casilla");
     } else if (number === 1) {
-      setCookiesContainer(cookiesContainer.slice(0, -1));
-      setGameStatus("Se ha descargado una coockie");
+      setCookiesContainer( cookiesContainer.slice(0, -1));
+
+      setGameStatus(cookiesContainer.length === 1 ? 'se han acabado las coockies' : 'Se ha descargado una coockie');
+
     } else if (number === 2) {
       setEggsContainer(eggsContainer.slice(0, -1));
-      setGameStatus("Se ha descargado un huevo");
+
+      setGameStatus(eggsContainer.length === 1 ? 'se han acabado los huevos' : 'Se ha descargado una huevos');
+
     } else {
       setFrogsContainer(frogsContainer.slice(0, -1));
-      setGameStatus("Se ha descargado una rana");
+      setGameStatus(frogsContainer.length === 1 ? 'se han acabado los ranas' : 'Se ha descargado una ranas');
     }
   };
   const handleClick = (event) => {
@@ -58,7 +81,7 @@ function App() {
   const groguCells = [1, 2, 3, 4, 5, 6, 7].map((cell, index) => {
     return (
       <>
-        <div className="cell">
+        <div className="cell" >
           {index === grogu && <div key={index} className="grogu"> 👣</div>}
         </div>
       </>

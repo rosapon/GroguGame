@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 function Board({groguPosition}) {
   return (
-    <section className="board" >{groguPosition}</section>
+    <section className="board">{groguPosition}</section>
   )
 }
 

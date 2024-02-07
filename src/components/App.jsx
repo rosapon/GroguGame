@@ -5,6 +5,10 @@ import Board from "./Board";
 import Dice from "./Dice";
 import GameStatus from "./GameStatus";
 import Form from "./Form";
+import { Link, Route, Routes } from "react-router-dom";
+import Footer from "./Footer";
+import Instructions from "./Instructions";
+import Options from "./Options";
 
 
 
@@ -120,7 +124,13 @@ function App() {
   return (
     <>
       <div className="page">
-        <Header />
+        {/* <Header /> */}
+
+        <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/Instructions" element={<Instructions />} />
+        <Route path="/Options" element={<Options />} />
+        </Routes>
         <main className="page">
           <Board groguPosition = {groguCells} />
           <section>
@@ -141,6 +151,7 @@ function App() {
             <button className="restart-button" onClick={handleReset}>Reiniciar Juego</button>
           </section>
         </main>
+        <Footer />
       </div>
     </>
   );

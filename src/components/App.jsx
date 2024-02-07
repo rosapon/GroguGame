@@ -127,7 +127,7 @@ function App() {
         {/* <Header /> */}
 
         <Routes>
-        <Route path="/" element={<App />} />
+       {/*  <Route path="/" element={<App />} /> */}
         <Route path="/Instructions" element={<Instructions />} />
         <Route path="/Options" element={<Options />} />
         </Routes>

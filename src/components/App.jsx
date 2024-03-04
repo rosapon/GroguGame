@@ -56,28 +56,41 @@ function App() {
   },
   [grogu, cookiesContainer, eggsContainer, frogsContainer, name ])
 
-
   const rollDice = () => {
     const number = Math.floor(Math.random() * 4 + 1);
     console.log(number);
     if (number === 4) {
-      setGrogu(grogu + 1);
-      setGameStatus(" Grogu ha avanzado una casilla");
+      if (grogu < 7) {
+        setGrogu(grogu + 1);
+        setGameStatus("Grogu ha avanzado una casilla");
+      } else {
+        setGameStatus("Grogu ha avanzado, perdiste");
+      }
     } else if (number === 1) {
-      setCookiesContainer( cookiesContainer.slice(0, -1));
-
-      setGameStatus(cookiesContainer.length === 1 ? 'se han acabado las coockies' : 'Se ha descargado una coockie');
-
+      setCookiesContainer(cookiesContainer.slice(0, -1));
+      setGameStatus(
+        cookiesContainer.length === 1
+          ? "Se han acabado las cookies"
+          : "Se ha descontado una cookie"
+      );
     } else if (number === 2) {
       setEggsContainer(eggsContainer.slice(0, -1));
-
-      setGameStatus(eggsContainer.length === 1 ? 'se han acabado los huevos' : 'Se ha descargado una huevos');
-
+      setGameStatus(
+        eggsContainer.length === 1
+          ? "Se han acabado los huevos"
+          : "Se ha descontado un huevo"
+      );
     } else {
       setFrogsContainer(frogsContainer.slice(0, -1));
-      setGameStatus(frogsContainer.length === 1 ? 'se han acabado los ranas' : 'Se ha descargado una ranas');
+      setGameStatus(
+        frogsContainer.length === 1
+          ? "Se han acabado las ranas"
+          : "Se ha descontado una rana"
+      );
     }
   };
+  
+
   const handleClick = (event) => {
     event.preventDefault();
     rollDice();

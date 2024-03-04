@@ -2,6 +2,9 @@
 # Mandalorian Delivery Mission
 Welcome to the Mandalorian Delivery Mission repository! This project is a collaborative effort to develop an animated game frontend using React.
 
+![grogu](https://github.com/Naidev7/Grogu/assets/150022253/f132dfc3-caa2-4f0a-b86d-b509916d175d)
+
+
 ## Project Overview
 In this game, you'll join the Mandalorian bounty hunter Din Djarin, also known as "the Mandalorian" or simply "Mando," as he travels through the galaxy with Grogu, completing various missions. This time, the mission is very special. Mando must deliver unfertilized frog eggs, blue cookies (so delicious!), and some frogs to establish contact with Ahsoka Tano.
 

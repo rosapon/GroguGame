@@ -137,7 +137,7 @@ function App() {
   return (
     <>
       <div className="page">
-        {/* <Header /> */}
+        <Header />
 
         <Routes>
        {/*  <Route path="/" element={<App />} /> */}

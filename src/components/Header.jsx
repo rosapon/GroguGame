@@ -2,7 +2,7 @@
 function Header() {
   return (
     <>
-        <header>
+        <header className="header">
           <h1>¡Cuidado con Grogu!</h1>
         </header>
     </>

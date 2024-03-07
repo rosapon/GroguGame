@@ -1,20 +1,15 @@
-/* import Header from "./Header" */
+
 
 function Instructions() {
   return (
     <div>
-        {/* <Header /> */}
     <section className="instructions">
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
-    provident nisi voluptatem est nostrum optio perferendis doloremque,
-    delectus at, assumenda suscipit sit odio ipsum error consequatur numquam
-    vero impedit nulla?
-  </p>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium
-    animi voluptatem quis impedit amet in dicta soluta explicabo, fugit magni
-    mollitia, pariatur eos, repellendus aut esse recusandae minima eum eaque.
+  <p className="instrus">
+  El cazarrecompensas mandaloriano Din Djarin, conocido como «el Mandaloriano» o simplemente «mando», está a cargo de Grogu mientras viaja por la galaxia realizando todo tipo de encargos.
+  En esta ocasión el encargo es muy especial. 
+  </p>  <br /> 
+  <p className="instrus">
+  Debe entregar huevos de rana (no fertilizados), galletas azules (¡qué ricas!) y unas ranas. Todo ello es muy importante ya que este cargamento es de vital importancia para restablecer contacto con Ahsoka Tano.
   </p>
 </section>
 </div>
